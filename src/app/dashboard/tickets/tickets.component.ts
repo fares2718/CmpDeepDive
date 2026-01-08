@@ -22,4 +22,13 @@ export class TicketsComponent {
     };
     this.tickets?.push(ticket);
   }
+
+  onCloseTicket(id: string) {
+    this.tickets = this.tickets?.map((t) => {
+      if (t.id === id) {
+        return { ...t, status: 'closed' };
+      }
+      return t;
+    });
+  }
 }
